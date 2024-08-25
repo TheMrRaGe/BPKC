@@ -15,7 +15,7 @@ export default function RootLayout({
         <title>Bored Pitty Kennel Club</title> {/* Set your desired title here */}
         <link rel="icon" href="/public/bpkc.jpg" /> {/* Update the path to your favicon */}
       </Head>
-		<body className="px-6">
+		<body className="px-3">
 		  <AppWalletProvider>
 			<div className="py-4">
 			  <NavBar />
