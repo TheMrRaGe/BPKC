@@ -1,6 +1,7 @@
 import "./globals.css";
 import AppWalletProvider from "./components/AppWalletProvider";
 import { NavBar } from "./components/NavBar";
+import Head from 'next/head'; // Import Head from next/head
 
 
 export default function RootLayout({
@@ -10,6 +11,10 @@ export default function RootLayout({
   }>) {
 	return (
 	  <html lang="en" >
+	  <Head>
+        <title>Bored Pitty Kennel Club</title> {/* Set your desired title here */}
+        <link rel="icon" href="/public/bpkc.jpg" /> {/* Update the path to your favicon */}
+      </Head>
 		<body className="px-6">
 		  <AppWalletProvider>
 			<div className="py-4">
