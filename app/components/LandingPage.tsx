@@ -153,7 +153,7 @@ export const LandingPage = () => {
           Mint Date: August 23th, 2024
         </p>
         <p className="font-bold text-[20px] text-red py-6">
-          Mint Price: .025 SOL
+          Mint Price: .045 SOL
         </p>
 
         {txError && <p className="text-red-500">{txError}</p>}
