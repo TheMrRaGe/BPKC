@@ -20,12 +20,9 @@ import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-ad
 import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata'
 import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox'
 import * as bs58 from 'bs58'
-import { IoClose } from "react-icons/io5";
 import { TiPlus, TiMinus } from "react-icons/ti";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Confetti from "react-confetti";
-import CandyMint from "./CandyMint"
 import { ButtonCase } from "./ButtonCase";
 
 const quicknodeEndpoint =
@@ -33,6 +30,10 @@ const quicknodeEndpoint =
 
 const candyMachineAddress = publicKey(
     'J4SatCJR4VCqSrGWFvDJKUvRdA5Bux7FFmmBum9Mci9V',
+);
+
+const treasury = publicKey(
+  'J4SatCJR4VCqSrGWFvDJKUvRdA5Bux7FFmmBum9Mci9V',
 );
 
 const containerVariants = {
@@ -106,12 +107,15 @@ export const LandingPage = () => {
                 .add(setComputeUnitLimit(umi, { units: 800_000 }))
                 .add(
                     mintV2(umi, {
-                        candyMachine: candyMachine.publicKey,
-                        candyGuard: candyGuard.publicKey,
-                        nftMint,
-                        collectionMint: candyMachine.collectionMint,
-                        collectionUpdateAuthority: candyMachine.authority,
-                        group: some('Dev'),
+                      candyMachine: candyMachine.publicKey,
+                      candyGuard: candyGuard?.publicKey,
+                      nftMint,
+                      collectionMint: candyMachine.collectionMint,
+                      collectionUpdateAuthority: candyMachine.authority,
+                      mintArgs: {
+                          solPayment: some({ destination: treasury }),
+                      },
+                      group: some('Dev'),
                     }),
                 );
 
