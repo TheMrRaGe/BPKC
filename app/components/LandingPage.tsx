@@ -112,9 +112,6 @@ export const LandingPage = () => {
                       nftMint,
                       collectionMint: candyMachine.collectionMint,
                       collectionUpdateAuthority: candyMachine.authority,
-                      mintArgs: {
-                          solPayment: some({ destination: treasury }),
-                      },
                       group: some('Dev'),
                     }),
                 );
