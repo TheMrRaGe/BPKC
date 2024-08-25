@@ -10,12 +10,12 @@
   },
   "dependencies": {
     "@metaplex-foundation/js": "^0.20.1",
-		"@metaplex-foundation/mpl-candy-machine": "^6.0.0-alpha.20",
-		"@metaplex-foundation/mpl-token-metadata": "^3.2.0-alpha.0",
-		"@metaplex-foundation/mpl-toolbox": "^0.9.4",
-		"@metaplex-foundation/umi": "^0.8.10",
-		"@metaplex-foundation/umi-bundle-defaults": "^0.8.10",
-		"@metaplex-foundation/umi-signer-wallet-adapters": "^0.8.10",
+    "@metaplex-foundation/mpl-candy-machine": "^6.0.0-alpha.20",
+    "@metaplex-foundation/mpl-token-metadata": "^3.2.0-alpha.0",
+    "@metaplex-foundation/mpl-toolbox": "^0.9.4",
+    "@metaplex-foundation/umi": "^0.8.10",
+    "@metaplex-foundation/umi-bundle-defaults": "^0.8.10",
+    "@metaplex-foundation/umi-signer-wallet-adapters": "^0.8.10",
     "@next/font": "^14.2.5",
     "@solana/wallet-adapter-base": "^0.9.23",
     "@solana/wallet-adapter-react": "^0.15.35",
@@ -32,6 +32,7 @@
     "toast": "^0.5.4"
   },
   "devDependencies": {
+    "@types/bs58": "^4.0.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -47,5 +48,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }  
+  }
 }
