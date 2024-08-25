@@ -33,7 +33,7 @@ const candyMachineAddress = publicKey(
 );
 
 const treasury = publicKey(
-  'J4SatCJR4VCqSrGWFvDJKUvRdA5Bux7FFmmBum9Mci9V',
+  'HER2kzsixZSgPPKjmw9vJ7atMnwnmg5FA3WcB9wrbcVf',
 );
 
 const containerVariants = {
@@ -101,7 +101,6 @@ export const LandingPage = () => {
             return;
         }
 
-        for (let i = 0; i < quantity; i++) {
             const nftMint = generateSigner(umi);
             const transaction = transactionBuilder()
                 .add(setComputeUnitLimit(umi, { units: 800_000 }))
@@ -113,9 +112,8 @@ export const LandingPage = () => {
                       collectionMint: candyMachine.collectionMint,
                       collectionUpdateAuthority: candyMachine.authority,
                       mintArgs: {
-                          solPayment: some({ destination: treasury }),
-                      },
-                      group: some('Public'),
+                        solPayment: some({ destination: treasury }),
+                    },
                     }),
                 );
 
@@ -123,10 +121,8 @@ export const LandingPage = () => {
                 confirm: { commitment: 'confirmed' },
             });
             const txid = bs58.encode(signature);
-            console.log('success', `Mint ${i + 1} successful! ${txid}`);
-        }
-
-        console.log('success', `All ${quantity} mints completed successfully!`);
+        
+        
         setLastMintTime(Date.now()); // Update last mint time
       } catch (error: any) { // Add type assertion to error
         console.error('Mint failed!', error);
@@ -138,7 +134,7 @@ export const LandingPage = () => {
     } finally {
         setTxLoading(false);
     }
-}, [wallet, umi, quantity, lastMintTime]);
+}, [wallet, umi, lastMintTime]);
 
   return (
     <div className="relative flex flex-row justify-between gap-20 overflow-hidden pt-10">
@@ -157,39 +153,17 @@ export const LandingPage = () => {
           Mint Date: August 23th, 2024
         </p>
         <p className="font-bold text-[20px] text-red py-6">
-          Mint Price: .05 SOL
+          Mint Price: .025 SOL
         </p>
 
         {txError && <p className="text-red-500">{txError}</p>}
-        <div className="font-bold text-[16px] ">
-          Mint Amount
-        </div>
-        <div className="flex items-center gap-4 py-4 font-bold">
-          <motion.button
-            whileHover={{ scale: 0.9 }}
-            whileTap={{ scale: 0.8 }}
-            onClick={() => setQuantity(Math.max(1, quantity - 1))}
-            disabled={quantity <= 1}
-          >
-            <TiMinus size={24} />
-          </motion.button>
-          <span className="text-[16px]">{quantity}</span>
-          <motion.button
-            whileHover={{ scale: 0.9 }}
-            whileTap={{ scale: 0.8 }}
-            onClick={() => setQuantity(Math.min(mintLimit, quantity + 1))}
-            disabled={quantity >= mintLimit}
-          >
-            <TiPlus size={24} />
-          </motion.button>
-        </div>
-        <div className="flex gap-6 pt-6 ">
+        <div className="flex gap-6 pt-3 ">
           <button
-            className="mb-6 mt-5 h-11 w-[78%] rounded font-primary font-bold uppercase text-black transition hover:bg-green-dark hover:text-white"
+            className="text-[12px] md:text-[18px] font-bold bg-black font-bold border-double border-2 border-red text-white h-[40px] md:h-[60px] w-[120px] rounded-xl"
             onClick={onClick}
             disabled={txLoading}
           >
-            {txLoading ? "Minting..." : `Mint ${quantity}`}
+            {txLoading ? "Minting..." : `Mint `}
           </button>
           <ButtonCase />
         </div>

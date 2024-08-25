@@ -10,7 +10,7 @@ export default function RootLayout({
   }>) {
 	return (
 	  <html lang="en" >
-		<body className="px-28">
+		<body className="px-6">
 		  <AppWalletProvider>
 			<div className="py-4">
 			  <NavBar />
