@@ -33,7 +33,7 @@ const candyMachineAddress = publicKey(
 );
 
 const treasury = publicKey(
-  'HER2kzsixZSgPPKjmw9vJ7atMnwnmg5FA3WcB9wrbcVf',
+  '3CBnegLRXygHTDq8dFz3vQTdFdzLyCHPk9xAGHEEs81t',
 );
 
 const containerVariants = {
