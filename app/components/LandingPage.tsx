@@ -60,7 +60,7 @@ export const LandingPage = () => {
   const [quantity, setQuantity] = useState<number>(1);
   const [mintLimit, setMintLimit] = useState<number>(100);
   const [lastMintTime, setLastMintTime] = useState<number | null>(null); // Track last mint time
-  const cooldownPeriod = 30000; // 30 seconds cooldown
+  const cooldownPeriod = 2000; // 2 seconds cooldown
 
   const { connection } = useConnection();
   const wallet = useWallet()
