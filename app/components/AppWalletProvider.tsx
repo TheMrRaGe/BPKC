@@ -5,34 +5,27 @@ import {
   ConnectionProvider,
   WalletProvider,
 } from "@solana/wallet-adapter-react";
-import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
-import { clusterApiUrl } from "@solana/web3.js";
 import {
-  LedgerWalletAdapter,
   PhantomWalletAdapter,
   SolflareWalletAdapter,
 } from "@solana/wallet-adapter-wallets";
-// import { UnsafeBurnerWalletAdapter } from "@solana/wallet-adapter-wallets";
 
 // Default styles that can be overridden by your app
 require("@solana/wallet-adapter-react-ui/styles.css");
+
+const quicknodeEndpoint = 'https://black-clean-frost.solana-mainnet.quiknode.pro/c6ff5e64973c46c6ff05685d7a0920bbcd1340db';
 
 export default function AppWalletProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // const networkMain = WalletAdapterNetwork.Mainnet;
-  // const networkMain = process.env.NEXT_PUBLIC_SOLANA_RPC_URL;
-  const networkMain = WalletAdapterNetwork.Mainnet;
-  const endpoint = useMemo(() => clusterApiUrl(networkMain), [networkMain]);
+  const endpoint = useMemo(() => quicknodeEndpoint, []); // Use QuickNode endpoint
   const wallets = useMemo(
     () => [
       new PhantomWalletAdapter(),
       new SolflareWalletAdapter(),
-      // new LedgerWalletAdapter(),
-      //   new UnsafeBurnerWalletAdapter(),
     ],
     []
   );

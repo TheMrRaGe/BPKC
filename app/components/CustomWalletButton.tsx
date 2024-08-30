@@ -1,3 +1,5 @@
+// CustomWalletButton.tsx
+
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
