@@ -126,7 +126,7 @@ export const CustomWalletButton = () => {
     return () => {
       connection.removeAccountChangeListener(accountChangeListenerId); // Clean up listener on unmount
     };
-  }, [publicKey, connection]);
+  }, [publicKey, connection, debouncedFetchAccountInfo]);
   
 
   useEffect(() => {

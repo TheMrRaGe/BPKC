@@ -25,8 +25,8 @@ export default function AppWalletProvider({
 }) {
   // const networkMain = WalletAdapterNetwork.Mainnet;
   // const networkMain = process.env.NEXT_PUBLIC_SOLANA_RPC_URL;
-  const networkDev = WalletAdapterNetwork.Mainnet;
-  const endpoint = useMemo(() => clusterApiUrl(networkDev), [networkDev]);
+  const networkMain = WalletAdapterNetwork.Mainnet;
+  const endpoint = useMemo(() => clusterApiUrl(networkMain), [networkMain]);
   const wallets = useMemo(
     () => [
       new PhantomWalletAdapter(),
@@ -34,7 +34,7 @@ export default function AppWalletProvider({
       // new LedgerWalletAdapter(),
       //   new UnsafeBurnerWalletAdapter(),
     ],
-    [networkDev]
+    []
   );
 
   return (
