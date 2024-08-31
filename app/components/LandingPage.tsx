@@ -108,7 +108,7 @@ export const LandingPage = () => {
         const nftMint = generateSigner(umi);
         
         // Fetch a new blockhash before each attempt
-        const { blockhash } = await connection.getLatestBlockhash();
+        const latestBlockhash = await umi.rpc.getLatestBlockhash();
         
         const transaction = transactionBuilder()
           .add(setComputeUnitLimit(umi, { units: 800_000 }))
@@ -123,18 +123,19 @@ export const LandingPage = () => {
                 solPayment: some({ destination: treasury }),
               },
             }),
-          ).setBlockhash(blockhash); // Set the latest blockhash
+          )
+          .setBlockhash(latestBlockhash);
   
         const { signature } = await transaction.sendAndConfirm(umi, {
           confirm: { commitment: 'confirmed' },
         });
         
+        console.log('Mint successful!', signature);
         setLastMintTime(Date.now()); // Update last mint time
         break; // Exit the retry loop on success
       } catch (error: any) {
         console.error('Mint failed!', error);
         
-        // Check for blockhash error
         if (error.message.includes('Blockhash not found')) {
           attempt++;
           if (attempt < maxRetries) {
@@ -145,21 +146,17 @@ export const LandingPage = () => {
           }
         } else {
           // Handle other errors
-          if (error.message) {
-            if (error.message.includes('validation error')) {
-              setTxError('Validation error occurred. Please check your inputs.');
-            } else {
-              setTxError(`An unexpected error occurred: ${error.message}`);
-            }
-          } else {
-            setTxError('An unexpected error occurred. Please try again.');
+          if (error.logs) {
+            console.error('Transaction logs:', error.logs);
           }
+          setTxError(`An unexpected error occurred: ${error.message}`);
         }
       } finally {
         setTxLoading(false);
       }
     }
-  }, [wallet.publicKey, lastMintTime, umi, connection]);
+  }, [wallet.publicKey, lastMintTime, umi]);
+  
   
   
   
