@@ -89,64 +89,78 @@ export const LandingPage = () => {
     setTxLoading(true);
     setTxError(null);
   
-    try {
-      const candyMachine = await fetchCandyMachine(umi, candyMachineAddress);
-      console.log('Candy Machine:', candyMachine);
+    const maxRetries = 3; // Maximum number of retries
+    let attempt = 0;
   
-      const candyGuardAddress = candyMachine.mintAuthority; 
-      const candyGuard = await safeFetchCandyGuard(umi, candyGuardAddress);
+    while (attempt < maxRetries) {
+      try {
+        const candyMachine = await fetchCandyMachine(umi, candyMachineAddress);
+        console.log('Candy Machine:', candyMachine);
   
-      if (!candyGuard) {
-        console.log('error', 'Candy Guard not found or not initialized!');
-        return;
-      }
+        const candyGuardAddress = candyMachine.mintAuthority; 
+        const candyGuard = await safeFetchCandyGuard(umi, candyGuardAddress);
   
-      const nftMint = generateSigner(umi);
-      
-      // Fetch the latest blockhash
-      const { blockhash } = await connection.getRecentBlockhash();
-      
-      const transaction = transactionBuilder()
-        .add(setComputeUnitLimit(umi, { units: 800_000 }))
-        .add(
-          mintV2(umi, {
-            candyMachine: candyMachine.publicKey,
-            candyGuard: candyGuard?.publicKey,
-            nftMint,
-            collectionMint: candyMachine.collectionMint,
-            collectionUpdateAuthority: candyMachine.authority,
-            mintArgs: {
-              solPayment: some({ destination: treasury }),
-            },
-          }),
-        ).setBlockhash(blockhash); // Set the latest blockhash
-  
-      const { signature } = await transaction.sendAndConfirm(umi, {
-        confirm: { commitment: 'confirmed' },
-      });
-      const txid = bs58.encode(signature);
-      
-      setLastMintTime(Date.now()); // Update last mint time
-    } catch (error: any) { // Catch any error
-      console.error('Mint failed!', error);
-      
-      // General error handling
-      if (error.message) {
-        // Check for specific error messages
-        if (error.message.includes('validation error')) {
-          setTxError('Validation error occurred. Please check your inputs.');
-        } else if (error.message.includes('Blockhash not found')) {
-          setTxError('Transaction failed: Blockhash not found. Please try again.');
-        } else {
-          setTxError(`An unexpected error occurred: ${error.message}`);
+        if (!candyGuard) {
+          console.log('error', 'Candy Guard not found or not initialized!');
+          return;
         }
-      } else {
-        setTxError('An unexpected error occurred. Please try again.');
+  
+        const nftMint = generateSigner(umi);
+        
+        // Fetch the latest blockhash
+        const { blockhash } = await connection.getRecentBlockhash();
+        
+        const transaction = transactionBuilder()
+          .add(setComputeUnitLimit(umi, { units: 800_000 }))
+          .add(
+            mintV2(umi, {
+              candyMachine: candyMachine.publicKey,
+              candyGuard: candyGuard?.publicKey,
+              nftMint,
+              collectionMint: candyMachine.collectionMint,
+              collectionUpdateAuthority: candyMachine.authority,
+              mintArgs: {
+                solPayment: some({ destination: treasury }),
+              },
+            }),
+          ).setBlockhash(blockhash); // Set the latest blockhash
+  
+        const { signature } = await transaction.sendAndConfirm(umi, {
+          confirm: { commitment: 'confirmed' },
+        });
+        
+        setLastMintTime(Date.now()); // Update last mint time
+        break; // Exit the retry loop on success
+      } catch (error: any) {
+        console.error('Mint failed!', error);
+        
+        // Check for blockhash error
+        if (error.message.includes('Blockhash not found')) {
+          attempt++;
+          if (attempt < maxRetries) {
+            console.log(`Retrying transaction... Attempt ${attempt + 1}`);
+            continue; // Retry the transaction
+          } else {
+            setTxError('Transaction failed: Blockhash not found after multiple attempts. Please try again later.');
+          }
+        } else {
+          // Handle other errors
+          if (error.message) {
+            if (error.message.includes('validation error')) {
+              setTxError('Validation error occurred. Please check your inputs.');
+            } else {
+              setTxError(`An unexpected error occurred: ${error.message}`);
+            }
+          } else {
+            setTxError('An unexpected error occurred. Please try again.');
+          }
+        }
+      } finally {
+        setTxLoading(false);
       }
-    } finally {
-      setTxLoading(false);
     }
   }, [wallet.publicKey, lastMintTime, umi, connection]);
+  
   
   
 
