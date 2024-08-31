@@ -76,65 +76,79 @@ export const LandingPage = () => {
 
   const onClick = useCallback(async () => {
     if (!wallet.publicKey) {
-        console.log('error', 'Wallet not connected!');
-        return;
+      console.log('error', 'Wallet not connected!');
+      return;
     }
-
+  
     // Check if cooldown period has passed
     if (lastMintTime && Date.now() - lastMintTime < cooldownPeriod) {
-        setTxError(`Please wait before minting again. Cooldown period: ${Math.ceil((cooldownPeriod - (Date.now() - lastMintTime)) / 1000)} seconds remaining.`);
-        return;
+      setTxError(`Please wait before minting again. Cooldown period: ${Math.ceil((cooldownPeriod - (Date.now() - lastMintTime)) / 1000)} seconds remaining.`);
+      return;
     }
-
+  
     setTxLoading(true);
     setTxError(null);
-
+  
     try {
-        const candyMachine = await fetchCandyMachine(umi, candyMachineAddress);
-        console.log('Candy Machine:', candyMachine);
-
-        const candyGuardAddress = candyMachine.mintAuthority; 
-        const candyGuard = await safeFetchCandyGuard(umi, candyGuardAddress);
-
-        if (!candyGuard) {
-            console.log('error', 'Candy Guard not found or not initialized!');
-            return;
-        }
-
-            const nftMint = generateSigner(umi);
-            const transaction = transactionBuilder()
-                .add(setComputeUnitLimit(umi, { units: 800_000 }))
-                .add(
-                    mintV2(umi, {
-                      candyMachine: candyMachine.publicKey,
-                      candyGuard: candyGuard?.publicKey,
-                      nftMint,
-                      collectionMint: candyMachine.collectionMint,
-                      collectionUpdateAuthority: candyMachine.authority,
-                      mintArgs: {
-                        solPayment: some({ destination: treasury }),
-                    },
-                    }),
-                );
-
-            const { signature } = await transaction.sendAndConfirm(umi, {
-                confirm: { commitment: 'confirmed' },
-            });
-            const txid = bs58.encode(signature);
-        
-        
-        setLastMintTime(Date.now()); // Update last mint time
-      } catch (error: any) { // Add type assertion to error
-        console.error('Mint failed!', error);
+      const candyMachine = await fetchCandyMachine(umi, candyMachineAddress);
+      console.log('Candy Machine:', candyMachine);
+  
+      const candyGuardAddress = candyMachine.mintAuthority; 
+      const candyGuard = await safeFetchCandyGuard(umi, candyGuardAddress);
+  
+      if (!candyGuard) {
+        console.log('error', 'Candy Guard not found or not initialized!');
+        return;
+      }
+  
+      const nftMint = generateSigner(umi);
+      
+      // Fetch the latest blockhash
+      const { blockhash } = await connection.getRecentBlockhash();
+      
+      const transaction = transactionBuilder()
+        .add(setComputeUnitLimit(umi, { units: 800_000 }))
+        .add(
+          mintV2(umi, {
+            candyMachine: candyMachine.publicKey,
+            candyGuard: candyGuard?.publicKey,
+            nftMint,
+            collectionMint: candyMachine.collectionMint,
+            collectionUpdateAuthority: candyMachine.authority,
+            mintArgs: {
+              solPayment: some({ destination: treasury }),
+            },
+          }),
+        ).setBlockhash(blockhash); // Set the latest blockhash
+  
+      const { signature } = await transaction.sendAndConfirm(umi, {
+        confirm: { commitment: 'confirmed' },
+      });
+      const txid = bs58.encode(signature);
+      
+      setLastMintTime(Date.now()); // Update last mint time
+    } catch (error: any) { // Catch any error
+      console.error('Mint failed!', error);
+      
+      // General error handling
+      if (error.message) {
+        // Check for specific error messages
         if (error.message.includes('validation error')) {
-            setTxError('Validation error occurred. Please check your inputs.');
+          setTxError('Validation error occurred. Please check your inputs.');
+        } else if (error.message.includes('Blockhash not found')) {
+          setTxError('Transaction failed: Blockhash not found. Please try again.');
         } else {
-            setTxError(`An unexpected error occurred: ${error.message}`);
+          setTxError(`An unexpected error occurred: ${error.message}`);
         }
+      } else {
+        setTxError('An unexpected error occurred. Please try again.');
+      }
     } finally {
-        setTxLoading(false);
+      setTxLoading(false);
     }
-}, [wallet, umi, lastMintTime]);
+  }, [wallet.publicKey, lastMintTime, umi, connection]);
+  
+  
 
   return (
     <div className="relative flex flex-row justify-between gap-20 overflow-hidden pt-10">
