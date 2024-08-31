@@ -107,8 +107,8 @@ export const LandingPage = () => {
   
         const nftMint = generateSigner(umi);
         
-        // Fetch the latest blockhash
-        const { blockhash } = await connection.getRecentBlockhash();
+        // Fetch a new blockhash before each attempt
+        const { blockhash } = await connection.getLatestBlockhash();
         
         const transaction = transactionBuilder()
           .add(setComputeUnitLimit(umi, { units: 800_000 }))
@@ -160,6 +160,7 @@ export const LandingPage = () => {
       }
     }
   }, [wallet.publicKey, lastMintTime, umi, connection]);
+  
   
   
   
