@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults'
-
 import {
   generateSigner,
   transactionBuilder,
@@ -59,8 +58,6 @@ export const LandingPage = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [quantity, setQuantity] = useState<number>(1);
   const [mintLimit, setMintLimit] = useState<number>(100);
-  const [lastMintTime, setLastMintTime] = useState<number | null>(null); // Track last mint time
-  const cooldownPeriod = 2000; // 2 seconds cooldown
 
   const { connection } = useConnection();
   const wallet = useWallet()
@@ -80,16 +77,10 @@ export const LandingPage = () => {
       return;
     }
   
-    // Check if cooldown period has passed
-    if (lastMintTime && Date.now() - lastMintTime < cooldownPeriod) {
-      setTxError(`Please wait before minting again. Cooldown period: ${Math.ceil((cooldownPeriod - (Date.now() - lastMintTime)) / 1000)} seconds remaining.`);
-      return;
-    }
-  
     setTxLoading(true);
     setTxError(null);
   
-    const maxRetries = 3; // Maximum number of retries
+    const maxRetries = 5; // Increased from 3 to 5
     let attempt = 0;
   
     while (attempt < maxRetries) {
@@ -107,7 +98,6 @@ export const LandingPage = () => {
   
         const nftMint = generateSigner(umi);
         
-        // Fetch a new blockhash before each attempt
         const latestBlockhash = await umi.rpc.getLatestBlockhash();
         
         const transaction = transactionBuilder()
@@ -128,25 +118,27 @@ export const LandingPage = () => {
   
         const { signature } = await transaction.sendAndConfirm(umi, {
           confirm: { commitment: 'confirmed' },
+          send: {
+            skipPreflight: true, // Skip preflight to avoid blockhash expiration
+          },
         });
         
         console.log('Mint successful!', signature);
-        setLastMintTime(Date.now()); // Update last mint time
-        setTxLoading(false); // Set loading to false on success
-        break; // Exit the retry loop on success
+        setTxLoading(false);
+        break;
       } catch (error: any) {
         console.error('Mint failed!', error);
         
-        if (error.message.includes('Blockhash not found')) {
+        if (error.message.includes('Blockhash not found') || error.message.includes('Transaction simulation failed')) {
           attempt++;
           if (attempt < maxRetries) {
             console.log(`Retrying transaction... Attempt ${attempt + 1}`);
-            continue; // Retry the transaction
+            await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for 1 second before retrying
+            continue;
           } else {
-            setTxError('Transaction failed: Blockhash not found after multiple attempts. Please try again later.');
+            setTxError('Transaction failed: Unable to process after multiple attempts. Please try again later.');
           }
         } else {
-          // Handle other errors
           if (error.logs) {
             console.error('Transaction logs:', error.logs);
           }
@@ -154,9 +146,8 @@ export const LandingPage = () => {
         }
       }
     }
-    // Ensure loading is set to false after all attempts
     setTxLoading(false);
-  }, [wallet.publicKey, lastMintTime, umi]);
+  }, [wallet.publicKey, umi]);
   
   return (
     <div className="relative flex flex-row justify-between gap-20 overflow-hidden pt-10">
