@@ -132,6 +132,7 @@ export const LandingPage = () => {
         
         console.log('Mint successful!', signature);
         setLastMintTime(Date.now()); // Update last mint time
+        setTxLoading(false); // Set loading to false on success
         break; // Exit the retry loop on success
       } catch (error: any) {
         console.error('Mint failed!', error);
@@ -151,17 +152,12 @@ export const LandingPage = () => {
           }
           setTxError(`An unexpected error occurred: ${error.message}`);
         }
-      } finally {
-        setTxLoading(false);
       }
     }
+    // Ensure loading is set to false after all attempts
+    setTxLoading(false);
   }, [wallet.publicKey, lastMintTime, umi]);
   
-  
-  
-  
-  
-
   return (
     <div className="relative flex flex-row justify-between gap-20 overflow-hidden pt-10">
       <div className="">
