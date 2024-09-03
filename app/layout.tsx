@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 	description:
 	  "5,000 Unique Digital Collectibles Living on the Solana Blockchain",
 	openGraph: {
-	  title: "Monster Verse Mint",
+	  title: "BORED PITTY KENNEL CLUB",
 	  description:
 		"5,000 Unique Digital Collectibles Living on the Solana Blockchain",
 	  url: "https://boredpitty.vip/",
