@@ -4,11 +4,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Project Description
 
-The Solana NFT Minting Dapp is a decentralized application (dApp) built on the Solana blockchain. This project allows users to mint unique NFTs from a collection called "MonsterVerse." It utilizes Next.js for the frontend, Tailwind CSS for styling, and various Solana libraries for blockchain interactions.
+The Solana NFT Minting Dapp is a decentralized application (dApp) built on the Solana blockchain. This project allows users to mint unique NFTs from a collection called "BORED PITTY KENNEL CLUB." It utilizes Next.js for the frontend, Tailwind CSS for styling, and various Solana libraries for blockchain interactions.
 
 ### Features
 
-- **Mint NFTs:** Users can mint NFTs from the "MonsterVerse" collection.
+- **Mint NFTs:** Users can mint NFTs from the "BORED PITTY KENNEL CLUB" collection.
 - **Wallet Integration:** Integration with Solana wallets for secure transactions.
 - **Real-time Updates:** The dApp updates in real-time to reflect the number of NFTs minted and remaining.
 - **Responsive Design:** Tailwind CSS is used for responsive and visually appealing design.
