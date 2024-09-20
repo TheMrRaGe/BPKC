@@ -23,13 +23,13 @@ const Footer = () => {
         <LeftContent>
           <Logo />
           <IconList>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px' }}>
+            <a href="https://x.com/BoredPITTY" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px',  color: 'black' }}>
               <FontAwesomeIcon icon={faXTwitter} size="2x" />
             </a>
-            <a href="/" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faTelegram} size="2x" />
+            <a href="https://t.me/+y8Mk0hbTDVc1ZGJh" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faTelegram} size="2x" style={{ marginRight: '8px',  color: 'black' }}/>
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px' }}>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px',  color: 'black' }}>
               <FontAwesomeIcon icon={faFacebook} size="2x" />
             </a>
           </IconList>
@@ -39,7 +39,7 @@ const Footer = () => {
           <Item onClick={() => scrollTo("home")}>Home</Item>
           <Item onClick={() => scrollTo("about")}>About</Item>
           <Item onClick={() => scrollTo("team")}>Team</Item>
-          <Item onClick={() => scrollTo("faqs")}>Faqs</Item>
+          <Item onClick={() => scrollTo("faqs")}>FAQs</Item>
         </ListItems>
       </Container>
       <Credits>

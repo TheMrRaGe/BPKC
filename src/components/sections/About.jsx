@@ -20,7 +20,7 @@ const About = () => {
                 <span>5000</span>
               </h2>
               <p>Unique Digital Collectibles</p>
-              <p>Livin on the Solana Blockchain</p>
+              <p>Living on the Solana Blockchain</p>
             </div>
             <div className="col">
               
@@ -36,6 +36,7 @@ const Section = styled.div`
   min-height: 100vh;
   width: 100%;
   background-color: white;
+  color: black;
 `;
 
 export default About;

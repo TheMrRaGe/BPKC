@@ -5,6 +5,7 @@ import GLobalStyles from "./styles/GlobalStyles";
 import Navbar from "./components/Navbar";
 import Home from "./components/sections/Home";
 import About from "./components/sections/About";
+import Mint from "./components/sections/Mint";
 import Faqs from "./components/sections/Faqs";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -17,6 +18,7 @@ function App() {
         <Navbar />
         <Home />
         <About />
+        <Mint />
         <Faqs />
         <Footer />
         <ScrollToTop />

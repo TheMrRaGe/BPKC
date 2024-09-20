@@ -32,18 +32,18 @@ const Navbar = () => {
           <ListItem onClick={() => scrollTo("home")}>Home</ListItem>
           <ListItem onClick={() => scrollTo("about")}>About Us</ListItem>
           <ListItem onClick={() => scrollTo("roadmap")}>Utility</ListItem>
-          {/* <ListItem onClick={() => scrollTo("showcase")}>Art</ListItem> */}
+          <ListItem onClick={() => scrollTo("mint")}>Mint</ListItem>
           {/* <ListItem onClick={() => scrollTo("team")}>Team</ListItem> */}
           <ListItem onClick={() => scrollTo("faqs")}>FAQs</ListItem>
           <ListItem>
             <div className="mobile">
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px' }}>
+              <a href="https://x.com/BoredPITTY" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px',  color: 'black' }}>
                 <FontAwesomeIcon icon={faXTwitter} size="2x" />
               </a>
-              <a href="/" target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon icon={faTelegram} size="2x" />
+              <a href="https://t.me/+y8Mk0hbTDVc1ZGJh" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faTelegram} size="2x" style={{ marginRight: '8px',  color: 'black' }}/>
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px' }}>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px',  color: 'black' }}>
                 <FontAwesomeIcon icon={faFacebook} size="2x" />
               </a>
               <Button
@@ -52,20 +52,20 @@ const Navbar = () => {
               />
               <Button
                 text="Mint"
-                link="/"
+                link="#mint"
               />
             </div>
           </ListItem>
         </Menu>
         <div className="desktop">
           <div>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px' }}>
+            <a href="https://x.com/BoredPITTY" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px',  color: 'black' }}>
               <FontAwesomeIcon icon={faXTwitter} size="2x" />
             </a>
-            <a href="/" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faTelegram} size="2x" />
+            <a href="https://t.me/+y8Mk0hbTDVc1ZGJh" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faTelegram} size="2x" style={{ marginRight: '8px',  color: 'black' }}/>
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px' }}>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px',  color: 'black' }}>
               <FontAwesomeIcon icon={faFacebook} size="2x" />
             </a>
           </div>
@@ -75,7 +75,7 @@ const Navbar = () => {
           />
           <Button
             text="Mint"
-            link="/"
+            link="#mint"
           />
         </div>
       </Nav>
