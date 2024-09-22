@@ -124,15 +124,15 @@ const Mint = () => {
                         <div className="col-sm-4" style={{ padding: '50px'}}>
                             <div style={{ paddingBottom: '50px'}}>
                                 <h2>Mint</h2>
-                                <p style={{ paddingBottom: '25px'}}>Mint your own Random Pitty NFT.</p>
+                                <p style={{ paddingBottom: '25px'}}>Mint your own random Pitty NFT.</p>
                                 <p style={{ margin: '0'}}>Mint Date: August 23rd, 2024</p>
                                 <p>Mint Price: 0.45 SOL</p>
-                                <button style={{ display: 'inline-block', backgroundColor: 'white', color: 'rgb(255, 255, 255)', outline: 'none', border: 'none',  fontSize: '0.875rem', padding: '0.9rem 2.3rem', borderRadius: '50px', cursor: 'pointer', transition: '0.2s', position: 'relative', color: 'black'}}>Mint</button>
+                                <button style={{ display: 'inline-block', backgroundColor: 'white', color: 'black', outline: 'none', border: 'none',  fontSize: '0.875rem', padding: '0.9rem 2.3rem', borderRadius: '50px', cursor: 'pointer', transition: '0.2s', position: 'relative'}}>Mint</button>
                             </div>
                             <h2>OR</h2>
                             <p>Select a marketplace to mint from.</p>
-                            <a href="https://opensea.io/collection/bored-pitty-kennel-club" target="_blank"><img src={opensea} alt="Bored Pitty Kennel Club OpenSea" /></a>
-                            <a href="https://magiceden.us/marketplace/bored_pitty_kennel_club" target="_blank"><img src={magiceden} alt="Bored Pitty Kennel Club MagicEden" /></a>
+                            <a href="https://opensea.io/collection/bored-pitty-kennel-club" target="_blank" rel="noreferrer"><img src={opensea} alt="Bored Pitty Kennel Club OpenSea" /></a>
+                            <a href="https://magiceden.us/marketplace/bored_pitty_kennel_club" target="_blank" rel="noreferrer"><img src={magiceden} alt="Bored Pitty Kennel Club MagicEden" /></a>
                         </div>
                     </div>
                 </div>

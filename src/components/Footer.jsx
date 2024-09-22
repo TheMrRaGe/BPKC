@@ -37,7 +37,9 @@ const Footer = () => {
 
         <ListItems>
           <Item onClick={() => scrollTo("home")}>Home</Item>
-          <Item onClick={() => scrollTo("about")}>About</Item>
+          <Item onClick={() => scrollTo("about")}>About Us</Item>
+          <Item onClick={() => scrollTo("utility")}>Utility</Item>
+          <Item onClick={() => scrollTo("mint")}>NFT</Item>
           <Item onClick={() => scrollTo("team")}>Team</Item>
           <Item onClick={() => scrollTo("faqs")}>FAQs</Item>
         </ListItems>

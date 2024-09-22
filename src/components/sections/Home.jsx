@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import CoverVideo from "../CoverVideo";
+import HeroImage from "../HeroImage";
 import TypeWriterText from "../TypeWriterText";
 import RoundTextBlack from "../../assets/Rounded-Text-Black.png";
 import { keyframes } from "styled-components";
@@ -13,12 +13,12 @@ const Home = () => {
           <TypeWriterText />
         </Box>
         <Box>
-          <CoverVideo />
+          <HeroImage />
         </Box>
 
         <RoundText>
           <Circle>&#x2193;</Circle>
-          <img src={RoundTextBlack} alt="" />
+          <img src={RoundTextBlack} alt="Bored Pitty Kennel Club" />
         </RoundText>
       </Container>
     </Section>
@@ -105,7 +105,7 @@ const Circle = styled.span`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background-color: ${(props) => props.theme.text};
+  background-color: black;
   color: ${(props) => props.theme.body};
   position: absolute;
   top: 50%;

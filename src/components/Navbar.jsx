@@ -31,9 +31,9 @@ const Navbar = () => {
         <Menu click={click}>
           <ListItem onClick={() => scrollTo("home")}>Home</ListItem>
           <ListItem onClick={() => scrollTo("about")}>About Us</ListItem>
-          <ListItem onClick={() => scrollTo("roadmap")}>Utility</ListItem>
-          <ListItem onClick={() => scrollTo("mint")}>Mint</ListItem>
-          {/* <ListItem onClick={() => scrollTo("team")}>Team</ListItem> */}
+          <ListItem onClick={() => scrollTo("utility")}>Utility</ListItem>
+          <ListItem onClick={() => scrollTo("mint")}>NFT</ListItem>
+          <ListItem onClick={() => scrollTo("team")}>Team</ListItem>
           <ListItem onClick={() => scrollTo("faqs")}>FAQs</ListItem>
           <ListItem>
             <div className="mobile">

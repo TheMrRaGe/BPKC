@@ -17,7 +17,7 @@ const GlobalStyles = createGlobalStyle`
     h1, h2, h3, h4 {
         margin: 0;
         padding: 0;
-        font-family: 'Roboto', sans-serif; /* Set Roboto font for titles */
+        font-family: 'Vox', sans-serif;
         text-transform: uppercase;
     }
 
@@ -31,6 +31,16 @@ const GlobalStyles = createGlobalStyle`
 
     ul {
         list-style: none;
+    }
+
+    h1 {
+        font-size: 2em;
+        font-weight: bolder;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        font-weight: bolder;
     }
 `;
 

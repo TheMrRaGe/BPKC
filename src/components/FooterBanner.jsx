@@ -69,27 +69,27 @@ const ImgContainer = styled.div`
   }
 `;
 
-const Title = styled.h1`
-  font-size: ${(props) => props.theme.fontxxxl};
-  font-weight: 500;
-  text-transform: capitalize;
-  color: ${(props) => props.theme.body};
-  text-shadow: 1px 1px 2px ${(props) => props.theme.text};
-  padding: 1rem 2rem;
-  z-index: 10;
-  width: 35%;
+// const Title = styled.h1`
+//   font-size: ${(props) => props.theme.fontxxxl};
+//   font-weight: 500;
+//   text-transform: capitalize;
+//   color: ${(props) => props.theme.body};
+//   text-shadow: 1px 1px 2px ${(props) => props.theme.text};
+//   padding: 1rem 2rem;
+//   z-index: 10;
+//   width: 35%;
 
-  @media (max-width: 64em) {
-    font-size: ${(props) => props.theme.fontxxl};
-    width: 40%;
-    text-align: center;
-  }
+//   @media (max-width: 64em) {
+//     font-size: ${(props) => props.theme.fontxxl};
+//     width: 40%;
+//     text-align: center;
+//   }
 
-  @media (max-width: 48em) {
-    font-size: ${(props) => props.theme.fontxl};
-    width: 100%;
-    padding: 2rem 0;
-  }
-`;
+//   @media (max-width: 48em) {
+//     font-size: ${(props) => props.theme.fontxl};
+//     width: 100%;
+//     padding: 2rem 0;
+//   }
+// `;
 
 export default FooterBanner;
