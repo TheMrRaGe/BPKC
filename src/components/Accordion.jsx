@@ -53,7 +53,7 @@ const Title = styled.div`
 const Reveal = styled.div`
   display: ${(props) => (props.clicked ? "block" : "none")};
   margin-top: 1rem;
-  color: ${(props) => `rgba(${props.theme.bodyRgba}, 0.6)`};
+  color: ${(props) => `rgba(0,0,0, 0.6)`};
   font-size: ${(props) => props.theme.fontsm};
   font-weight: 300;
   line-height: 1.1rem;
@@ -73,7 +73,7 @@ const Indicator = styled.span`
   svg {
     width: 1rem;
     height: auto;
-    fill: ${(props) => props.theme.carouselColor};
+    fill: black;
   }
 
   @media (max-width: 48em) {

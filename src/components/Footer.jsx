@@ -3,7 +3,7 @@ import styled from "styled-components";
 import FooterBanner from "./FooterBanner";
 import Logo from "./Logo";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faXTwitter, faTelegram } from '@fortawesome/free-brands-svg-icons';
+import { faXTwitter, faTelegram } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   const scrollTo = (id) => {
@@ -29,15 +29,12 @@ const Footer = () => {
             <a href="https://t.me/+y8Mk0hbTDVc1ZGJh" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faTelegram} size="2x" style={{ marginRight: '8px',  color: 'black' }}/>
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px',  color: 'black' }}>
-              <FontAwesomeIcon icon={faFacebook} size="2x" />
-            </a>
           </IconList>
         </LeftContent>
 
         <ListItems>
           <Item onClick={() => scrollTo("home")}>Home</Item>
-          <Item onClick={() => scrollTo("about")}>About Us</Item>
+          <Item onClick={() => scrollTo("about")}>About</Item>
           <Item onClick={() => scrollTo("utility")}>Utility</Item>
           <Item onClick={() => scrollTo("mint")}>NFT</Item>
           <Item onClick={() => scrollTo("team")}>Team</Item>

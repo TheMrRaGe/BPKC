@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import values from "../../assets/values.png";
+import video from "../../assets/Nfts/pitty-nfts.mov";
 
 const About = () => {
   return (
@@ -8,7 +9,7 @@ const About = () => {
       <div style={{padding: '50px 0px', backgroundColor: 'black', color: 'white'}}>
         <div className="container">
           <h2>
-            Our mission is to continuously provide value to the $PITTY community, and the Solana blockchain as whole, through the development of innovative technology and real-world business applications.
+            Our mission is to create a culture of success through education, the development of innovative technology, and rewarding our community.
           </h2>
         </div>
       </div>
@@ -16,14 +17,9 @@ const About = () => {
         <div className="container">
           <div className="row">
             <div className="col align-self-center">
-              <h2 style={{ fontSize: '4em', fontWeight: '500', margin: '0'}}>
-                Bored Pitty Kennel Club Digital Collectibles
-              </h2>
-              <h2 style={{ fontSize: '7em', margin: '0'}}>5000</h2>
-              <p style={{ fontSize: '2em', fontWeight: '550', margin: '0'}}>Unique Digital Collectibles</p>
-              <p style={{ fontSize: '2em'}}>Living on the Solana Blockchain</p>
+            <video src={video} width="100%" autoplay="true" muted="true" loop="true" />
             </div>
-            <div className="col align-self-center">
+            <div className="col align-self-center text-center">
               <img src={values} alt="Bored Pitty Kennel Club values" />
             </div>
           </div>

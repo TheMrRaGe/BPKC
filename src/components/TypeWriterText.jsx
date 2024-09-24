@@ -7,7 +7,7 @@ const TypeWriterText = () => {
   return (
     <>
       <Title>
-        <p>A Kennel of Blockchain Utility </p>
+        <p style={{ color: 'black' }}>A Kennel of Blockchain Utility </p>
         <Typewriter
           options={{
             autoStart: true,
@@ -15,13 +15,13 @@ const TypeWriterText = () => {
           }}
           onInit={(typewriter) => {
             typewriter
-              .typeString(`<span class="text-1">Trading Bots.</span>`)
+              .typeString(`<span class="text-1">Trading Bots</span>`)
               .pauseFor(2000)
               .deleteAll()
-              .typeString(`<span class="text-2">NFTs.</span>`)
+              .typeString(`<span class="text-2">NFTs</span>`)
               .pauseFor(2000)
               .deleteAll()
-              .typeString(`<span class="text-3">Community Rewards!</span>`)
+              .typeString(`<span class="text-3">Community Rewards</span>`)
               .pauseFor(2000)
               .deleteAll()
               .start();
@@ -29,9 +29,9 @@ const TypeWriterText = () => {
         />
       </Title>
       {/* <Subtitle>Bored of the average pump'n'dump? Join us in changing how Solana coins serve their communities!</Subtitle> */}
-      <Subtitle>Changing how Solana coins serve their communities!</Subtitle>
+      <Subtitle>Changing how Solana tokens serve their communities!</Subtitle>
       <ButtonContainer>
-        <Button text="Our Utility" link="#utility" style={{ backgroundColor: 'white' }} />
+        <Button text="Our Utility" link="#utility"/>
       </ButtonContainer>
     </>
   );
@@ -41,7 +41,7 @@ const Title = styled.h2`
   font-size: ${(props) => props.theme.fontxxl};
   font-weight: 500;
   width: 80%;
-  color: ${(props) => props.theme.text};
+  color: black;
   align-self: flex-start;
 
   span {

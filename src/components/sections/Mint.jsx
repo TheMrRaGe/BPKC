@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import opensea from "../../assets/open-sea-logo.png";
 import magiceden from "../../assets/magic-eden-logo.png";
+import tensor from "../../assets/tensor-logo.png";
 import nft1 from "../../assets/Nfts/1.png";
 import nft2 from "../../assets/Nfts/2.png";
 import nft3 from "../../assets/Nfts/3.png";
@@ -127,12 +128,13 @@ const Mint = () => {
                                 <p style={{ paddingBottom: '25px'}}>Mint your own random Pitty NFT.</p>
                                 <p style={{ margin: '0'}}>Mint Date: August 23rd, 2024</p>
                                 <p>Mint Price: 0.45 SOL</p>
-                                <button style={{ display: 'inline-block', backgroundColor: 'white', color: 'black', outline: 'none', border: 'none',  fontSize: '0.875rem', padding: '0.9rem 2.3rem', borderRadius: '50px', cursor: 'pointer', transition: '0.2s', position: 'relative'}}>Mint</button>
+                                <button style={{ display: 'inline-block', color: 'black', outline: 'none', border: 'none',  fontSize: '0.875rem', padding: '0.9rem 2.3rem', borderRadius: '50px', transition: '0.2s', position: 'relative'}} disabled>Minted Out!</button>
                             </div>
                             <h2>OR</h2>
-                            <p>Select a marketplace to mint from.</p>
+                            <p>Select a marketplace to view the collection.</p>
                             <a href="https://opensea.io/collection/bored-pitty-kennel-club" target="_blank" rel="noreferrer"><img src={opensea} alt="Bored Pitty Kennel Club OpenSea" /></a>
-                            <a href="https://magiceden.us/marketplace/bored_pitty_kennel_club" target="_blank" rel="noreferrer"><img src={magiceden} alt="Bored Pitty Kennel Club MagicEden" /></a>
+                           <a href="https://magiceden.us/marketplace/bored_pitty_kennel_club" target="_blank" rel="noreferrer"><img src={magiceden} alt="Bored Pitty Kennel Club MagicEden" /></a>
+                           <a href="https://www.tensor.trade/trade/bored_pitty_kennel_club" target="_blank" rel="noreferrer"><img src={tensor} alt="Bored Pitty Kennel Club Tensor" /></a> 
                         </div>
                     </div>
                 </div>
@@ -157,4 +159,4 @@ const Section = styled.div`
   }
 `;
 
-export default Mint
+export default Mint;

@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import Button from "./Button";
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faXTwitter, faTelegram } from '@fortawesome/free-brands-svg-icons';
+import { faXTwitter, faTelegram } from '@fortawesome/free-brands-svg-icons';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -30,7 +30,7 @@ const Navbar = () => {
         </HamburgerMenu>
         <Menu click={click}>
           <ListItem onClick={() => scrollTo("home")}>Home</ListItem>
-          <ListItem onClick={() => scrollTo("about")}>About Us</ListItem>
+          <ListItem onClick={() => scrollTo("about")}>About</ListItem>
           <ListItem onClick={() => scrollTo("utility")}>Utility</ListItem>
           <ListItem onClick={() => scrollTo("mint")}>NFT</ListItem>
           <ListItem onClick={() => scrollTo("team")}>Team</ListItem>
@@ -43,16 +43,10 @@ const Navbar = () => {
               <a href="https://t.me/+y8Mk0hbTDVc1ZGJh" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faTelegram} size="2x" style={{ marginRight: '8px',  color: 'black' }}/>
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px',  color: 'black' }}>
-                <FontAwesomeIcon icon={faFacebook} size="2x" />
-              </a>
               <Button
-                text="Connect Wallet"
-                link="/"
-              />
-              <Button
-                text="Mint"
-                link="#mint"
+                text="View on Dexscreener"
+                link="https://dexscreener.com/solana/b195fs89ssbjtkucyfnodyg1hcfhrruvdv57hxvaeplc"
+                target="_blank"
               />
             </div>
           </ListItem>
@@ -65,17 +59,11 @@ const Navbar = () => {
             <a href="https://t.me/+y8Mk0hbTDVc1ZGJh" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faTelegram} size="2x" style={{ marginRight: '8px',  color: 'black' }}/>
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px',  color: 'black' }}>
-              <FontAwesomeIcon icon={faFacebook} size="2x" />
-            </a>
           </div>
           <Button
-            text="Connect Wallet"
-            link="/"
-          />
-          <Button
-            text="Mint"
-            link="#mint"
+            text="View on Dexscreener"
+            link="https://dexscreener.com/solana/b195fs89ssbjtkucyfnodyg1hcfhrruvdv57hxvaeplc"
+            target="_blank"
           />
         </div>
       </Nav>
