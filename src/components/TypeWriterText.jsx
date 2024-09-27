@@ -30,7 +30,7 @@ const TypeWriterText = () => {
       </Title>
       {/* <Subtitle>Bored of the average pump'n'dump? Join us in changing how Solana coins serve their communities!</Subtitle> */}
       <Subtitle>Changing how Solana tokens serve their communities!</Subtitle>
-      <ButtonContainer>
+      <ButtonContainer style={{ marginBottom: '50px'}}>
         <Button text="Our Utility" link="#utility"/>
       </ButtonContainer>
     </>

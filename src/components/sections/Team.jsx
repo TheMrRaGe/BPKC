@@ -7,7 +7,7 @@ import jon from "../../assets/Team/jonathan-mccarron.png";
 import lefty from "../../assets/Team/lefty.png";
 import cashmoneyhoney from "../../assets/Team/cashmoney-honey.png";
 import andrew from "../../assets/Team/andrew.png";
-import kis from "../../assets/Team/kis.png";
+import davin from "../../assets/Team/davin.png";
 import robin from "../../assets/Team/robin.png";
 import jay from "../../assets/Team/jay.png";
 import chris from "../../assets/Team/chris.png";
@@ -112,9 +112,9 @@ const Team = () => {
                         </div>
                         <div class="col-sm my-3">
                             <div class="hover-top-in text-center">
-                                <div class="overflow-hidden z-index-1 position-relative px-5"><img class="rounded-circle border border-5 border-white shadow" src={kis} title="" alt="" /></div>
+                                <div class="overflow-hidden z-index-1 position-relative px-5"><img class="rounded-circle border border-5 border-white shadow" src={davin} title="" alt="" /></div>
                                 <div class="mx-2 mx-xl-3 shadow rounded-3 position-relative mt-n4 bg-white p-4 pt-6 mx-4 text-center hover-top--in" style={{ color: 'black'}}>
-                                    <h6 class="fw-700 mb-1">Kis</h6><small>Administrator</small>
+                                    <h6 class="fw-700 mb-1">Davin Riera</h6><small>Angel Investor / Advisor</small>
                                 </div>
                             </div>
                         </div>
