@@ -3,7 +3,7 @@ import styled from "styled-components";
 import doug from "../../assets/Team/doulas-slayton.png";
 import jacob from "../../assets/Team/jacob-juszkowski.png";
 import heath from "../../assets/Team/heath-dale.png";
-import jon from "../../assets/Team/jonathan-mccarron.png";
+import dinhareo from "../../assets/Team/dinhareo.png";
 import lefty from "../../assets/Team/lefty.png";
 import cashmoneyhoney from "../../assets/Team/cashmoney-honey.png";
 import andrew from "../../assets/Team/andrew.png";
@@ -87,9 +87,9 @@ const Team = () => {
                         </div>
                         <div class="col-sm my-3">
                             <div class="hover-top-in text-center">
-                                <div class="overflow-hidden z-index-1 position-relative px-5"><img class="rounded-circle border border-5 border-white shadow" src={jon} title="" alt="" /></div>
+                                <div class="overflow-hidden z-index-1 position-relative px-5"><img class="rounded-circle border border-5 border-white shadow" src={dinhareo} title="" alt="" /></div>
                                 <div class="mx-2 mx-xl-3 shadow rounded-3 position-relative mt-n4 bg-white p-4 pt-6 mx-4 text-center hover-top--in" style={{ color: 'black'}}>
-                                    <h6 class="fw-700 mb-1">Jonathan McCarron</h6><small>Community Ambassador</small>
+                                    <h6 class="fw-700 mb-1">DINHAREO</h6><small>Community Ambassador</small>
                                 </div>
                             </div>
                         </div>
