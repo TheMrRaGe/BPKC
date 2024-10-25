@@ -127,7 +127,7 @@ const Mint = () => {
                                 <h2>Mint</h2>
                                 <p style={{ paddingBottom: '25px'}}>Mint your own random Pitty NFT.</p>
                                 <p style={{ margin: '0'}}>Mint Date: August 23rd, 2024</p>
-                                <p>Mint Price: 0.45 SOL</p>
+                                <p>Mint Price: 0.045 SOL</p>
                                 <button style={{ display: 'inline-block', color: 'black', outline: 'none', border: 'none',  fontSize: '0.875rem', padding: '0.9rem 2.3rem', borderRadius: '50px', transition: '0.2s', position: 'relative'}} disabled>Minted Out!</button>
                             </div>
                             <h2>OR</h2>
