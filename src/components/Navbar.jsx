@@ -37,6 +37,9 @@ const Navbar = () => {
           <ListItem onClick={() => scrollTo("faqs")}>FAQs</ListItem>
           <ListItem>
             <div className="mobile">
+              <a href="https://www.dextools.io/app/en/solana/pair-explorer/B195Fs89SsbJTKUCyFNoDYg1HCfhRruvdv57HxvaepLC?t=1730425265204" target="_blank" rel="noopener noreferrer">
+                <img src="/dextools.png" style={{ marginRight: '8px'}}></img>
+              </a>
               <a href="https://x.com/BoredPITTY" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px',  color: 'black' }}>
                 <FontAwesomeIcon icon={faXTwitter} size="2x" />
               </a>
@@ -52,7 +55,10 @@ const Navbar = () => {
           </ListItem>
         </Menu>
         <div className="desktop">
-          <div>
+          <div style={{display: 'flex'}}>
+            <a href="https://www.dextools.io/app/en/solana/pair-explorer/B195Fs89SsbJTKUCyFNoDYg1HCfhRruvdv57HxvaepLC?t=1730425265204" target="_blank" rel="noopener noreferrer">
+              <img src="/dextools.png" style={{ marginRight: '8px'}}></img>
+            </a>
             <a href="https://x.com/BoredPITTY" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px',  color: 'black' }}>
               <FontAwesomeIcon icon={faXTwitter} size="2x" />
             </a>
@@ -146,7 +152,7 @@ const Nav = styled.nav`
     }
 
     .mobile {
-      display: inline-block;
+      display: flex;
     }
   }
 `;
