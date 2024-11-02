@@ -23,6 +23,9 @@ const Footer = () => {
         <LeftContent>
           <Logo />
           <IconList>
+            <a href="https://www.dextools.io/app/en/solana/pair-explorer/B195Fs89SsbJTKUCyFNoDYg1HCfhRruvdv57HxvaepLC?t=1730429604126" target="_blank" rel="noopener noreferrer">
+              <img src="/dextools.png" style={{ marginRight: '8px'}}></img>
+            </a>
             <a href="https://x.com/BoredPITTY" target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px',  color: 'black' }}>
               <FontAwesomeIcon icon={faXTwitter} size="2x" />
             </a>
@@ -42,6 +45,7 @@ const Footer = () => {
         </ListItems>
       </Container>
       <Credits>
+        <p>Find us on <a href="https://www.dextools.io/app/en/solana/pair-explorer/B195Fs89SsbJTKUCyFNoDYg1HCfhRruvdv57HxvaepLC?t=1730429769067" target="_blank" rel="noreferrer">DexTools</a></p>
         <span>
           &copy;{new Date().getFullYear()} Bored Pitty Kennel Club. All Rights Reserved.
         </span>
@@ -53,7 +57,7 @@ const Footer = () => {
 const Credits = styled.div`
   width: 75%;
   margin: 0 auto;
-  display: flex;
+  text-align: center;
   justify-content: center;
   align-items: center;
 
