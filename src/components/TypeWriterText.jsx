@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
 import Button from "./Button";
+import whitepaper from "../assets/whitepaper-v1.pdf";
 
 const TypeWriterText = () => {
   return (
@@ -32,6 +33,7 @@ const TypeWriterText = () => {
       <Subtitle>Changing how Solana tokens serve their communities!</Subtitle>
       <ButtonContainer style={{ marginBottom: '50px'}}>
         <Button text="Our Utility" link="#utility"/>
+        <Button text="White Paper" link={whitepaper} style={{ marginTop: '10px !important' }}/>
       </ButtonContainer>
     </>
   );
@@ -105,6 +107,11 @@ const ButtonContainer = styled.div`
     button {
       margin: 0 auto;
     }
+  }
+
+  button {
+    margin-right: 10px;
+    margin-top: 10px;
   }
 `;
 export default TypeWriterText;
