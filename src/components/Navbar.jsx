@@ -67,8 +67,8 @@ const Navbar = () => {
             </a>
           </div>
           <Button
-            text="View on Dexscreener"
-            link="https://dexscreener.com/solana/b195fs89ssbjtkucyfnodyg1hcfhrruvdv57hxvaeplc"
+            text="Trading Bot (BETA)"
+            link="https://bot.boredpitty.vip/"
             target="_blank"
           />
         </div>
